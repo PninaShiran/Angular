@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;margin-right: 250px;text-align: left; direction: rtl;}
+body {display: block;float:right;;width:80%; font-family:Verdana, Geneva, Tahoma, sans-serif, "Helvetica Neue", sans-serif;  text-align:right; ; direction: rtl; }
+label{color:#d58727; text-align: left}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

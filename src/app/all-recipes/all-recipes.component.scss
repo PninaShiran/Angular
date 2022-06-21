@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items:flex-end;
+    margin: 100px;
+}
+.search{
+    // margin-top: 50px;
+    // margin-left: 50px;
+    margin: 20px;
+  float:right;
+}
+#search{
+    margin-top: 10px;
+}

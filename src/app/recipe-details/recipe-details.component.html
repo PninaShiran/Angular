@@ -1,0 +1,25 @@
+
+<div class="recipe-details" *ngIf="user!==-1">
+<div class="card" style="width: 18rem;">
+    <h1>{{selectedRecipe.nameRecipe}}</h1>
+    <img src="{{selectedRecipe.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text">{{selectedCategory.nameCategory}} <img style="width: 20px;" src="{{selectedCategory.routerCategory}}"></p>
+      <ngb-rating [rate]="selectedRecipe.levelDifficulty"></ngb-rating>
+      <h6>רכיבים:</h6>
+      <div *ngFor="let r of selectedRecipe.ingredients"><img style="width: 10px;" src="https://img.icons8.com/ios-filled/64/000000/meal.png"> {{r}}</div>
+      <h6>אופן ההכנה:</h6>
+      <ol>
+         <li *ngFor="let x of selectedRecipe.formPreparation">{{x}}</li>
+      </ol>
+     
+    </div>
+   
+  <div *ngIf="selectedRecipe.codeUser==user">
+    <input type="button" value="מחיקת המתכון" (click)="delete()"/>
+  </div>
+ </div> 
+</div>
+
+ 

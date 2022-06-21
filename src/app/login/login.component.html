@@ -1,0 +1,13 @@
+<form>
+    <div>
+        <label>שם משתמש</label>
+        <input class="form-control" type="text" placeholder="הכנס שם משתמש" [(ngModel)]="person.name" name="user"/>
+    </div>
+    <div>
+        <label>סיסמה</label>
+        <input class="form-control" type="password" placeholder="הכנס סיסמה" [(ngModel)]="person.password" name="password"/>
+    </div>
+    <div>
+        <input class="form-control" type="button" value="התחבר" (click)="tryLogIn()"/>
+    </div>
+</form>

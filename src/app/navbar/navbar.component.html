@@ -1,0 +1,22 @@
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">שאלה של טעם</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a routerLink="home">בית</a></li>
+            <li><a routerLink="allRecipes">כל המתכונים</a></li>
+            <li *ngIf="user!='אורח'"><a routerLink="addRecipe">הוספת מתכון</a></li>
+            <li *ngIf="user!='אורח'"><a (click)="exit()" href="#">יציאה</a></li>          
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>{{user}}</a></li>
+            <li *ngIf="user=='אורח'"><a routerLink="register"><span class="glyphicon glyphicon-user"></span> הרשמה</a></li>
+            <li *ngIf="user=='אורח'"><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> התחברות</a></li>
+          </ul>
+        </div>
+      </nav> 
+</header>
+
+

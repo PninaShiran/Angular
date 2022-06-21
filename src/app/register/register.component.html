@@ -1,0 +1,27 @@
+    <form #myForm="ngForm" (ngSubmit)="addUser(myForm)">
+    <div>
+        <label>שם</label>
+        <input class="form-control" type="text" placeholder="הכנס שם" [(ngModel)]="newUser.nameUser" required name="name" #name="ngModel"/>
+        <div *ngIf="name.touched&&!name.valid&&name.errors?.required">
+            שם משתמש הוא שדה חובה!
+        </div>
+    </div>
+    <div>
+        <label>כתובת</label>
+        <input class="form-control" type="text" placeholder="הכנס כתובת" [(ngModel)]="newUser.addressUser" name="address" #address="ngModel"/>
+    </div>
+    <div>
+        <label>מייל</label>
+        <input class="form-control" type="email" placeholder="הכנס מייל" [(ngModel)]="newUser.mailUser" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" #email="ngModel"/>
+        <div *ngIf="email.errors">מייל חייב להיות בפורמט המתאים</div>
+    </div>
+    <div>
+        <label>סיסמה</label>
+        <input class="form-control" type="password" placeholder="בחר סיסמה" required [(ngModel)]="newUser.password" minlength="6" maxlength="12" name="code" #password="ngModel"/>
+        <div *ngIf="password.touched&&password.errors?.minlength">סיסמה מינמום {{password.errors.minlength.requiredLength}} תווים ואתה
+            הכנסת {{password.errors.minlength.actualLength}} תווים</div>
+    </div>
+    <div>
+        <input class="form-control" type="submit" value="הרשם" [disabled]="!myForm.valid"/>
+    </div>
+</form>

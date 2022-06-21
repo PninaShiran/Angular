@@ -1,0 +1,29 @@
+<div>
+    <form class="search">
+    <div id="nameR">
+        <label>שם:</label>
+        <input type="text" [(ngModel)]="selected.name" name="name"/>
+    </div>
+     <div>
+        <label>קטגוריה:</label>
+        <select [(ngModel)]="selected.category"  name="category">
+            <option *ngFor="let x of arrCategories" [value]="x.codeCategory">{{x.nameCategory}}</option>
+        </select>
+    </div> 
+    <div>
+        <label>משך הכנה:</label>
+        <input class="form" type="number" [(ngModel)]="selected.time" name="time"/>
+    </div>
+    <div>
+    <input type="button" value="סנן" (click)="filterRecipes()"/> 
+    </div>
+</form>
+    <div class="container">
+   <div *ngFor="let recipe of filteredRecipes">
+   <a routerLink="/recipeDetails/{{recipe.codeRecipe}}" *ngIf="check!==null"><app-small-recipe [myRecipe]="recipe"></app-small-recipe></a>
+   <div *ngIf="check===null">
+    <app-small-recipe [myRecipe]="recipe"></app-small-recipe>
+   </div>
+   </div>
+</div>
+</div> 

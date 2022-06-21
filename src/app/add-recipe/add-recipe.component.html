@@ -1,0 +1,42 @@
+<form>
+    <div>
+        <label>שם מתכון</label>
+        <input class="form-control" type="text" placeholder="הכנס שם מתכון" [(ngModel)]="newRecipe.nameRecipe" name="name" required #name="ngModel"/>
+        <div *ngIf="name.touched&&!name.valid&&name.errors?.required">
+            !שם מתכון הוא שדה חובה
+        </div>
+    </div>
+    <div>
+        <label>בחר קטגוריה</label>
+        <select class="form-control" [(ngModel)]="newRecipe.codeCategory"  name="category">
+            <option *ngFor="let x of arrCategories" [value]="x.codeCategory">{{x.nameCategory}}</option>
+        </select>
+    </div>
+    <div>
+        <label>משך הכנה</label>
+        <input class="form-control" type="number" placeholder="הכנס משך הכנה" [(ngModel)]="newRecipe.preparationTime" name="time"/>
+    </div>
+    <div>
+        <label>דרגת קושי</label>
+        <ngb-rating class="form-control" [rate]="0" [(ngModel)]="newRecipe.levelDifficulty" name="level"></ngb-rating>
+       </div>
+    <div>
+        <label>תמונה</label>
+        <input class="form-control" type="text" placeholder="הכנס כתובת תמונה" [(ngModel)]="newRecipe.image" name="img"/>
+    </div>
+    <div>
+        <label>רשימת הרכיבים:</label>
+        <div *ngFor="let x of arr1; let i=index; trackBy:trackByIdx">
+        <input class="form-control" type="text" [(ngModel)]="arr1[i]" name="d{{i}}" (keyup)="checkArr(arr1)" />
+        </div>
+    </div>       
+    <div>
+        <label>אופן ההכנה:</label>
+        <div *ngFor="let x of arr2; let i=index; trackBy:trackByIdx">
+            <input class="form-control" type="text" [(ngModel)]="arr2[i]" name="d{{i}}" (keyup)="checkArr(arr2)" />
+        </div>
+    </div>
+    <div>
+        <input class="form-control" type="button" value="שמור מתכון" (click)="addRecipe()"/>
+    </div>
+</form>

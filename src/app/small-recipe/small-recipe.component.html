@@ -1,0 +1,9 @@
+
+<div class="card" style="width: 30rem;">
+    <img src="{{myRecipe.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h1 class="card-title">{{myRecipe.nameRecipe}}</h1>
+      <p class="card-text">{{myRecipe.preparationTime | timeFormat}}</p>
+      <ngb-rating [rate]="myRecipe.levelDifficulty"></ngb-rating>
+    </div>
+  </div>
